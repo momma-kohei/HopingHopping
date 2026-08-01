@@ -10,6 +10,8 @@ GameObject:
   m_Component:
   - component: {fileID: 3033190221607707788}
   - component: {fileID: 7613360558794550651}
+  - component: {fileID: 8203575276843766827}
+  - component: {fileID: 1727347209399593466}
   m_Layer: 0
   m_Name: FallObject
   m_TagString: Untagged
@@ -78,3 +80,29 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 15, y: 10}
   m_EdgeRadius: 0
+--- !u!114 &8203575276843766827
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1125683970230407169}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f0587a19a81053e47b523c6c38088bbb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Trigger_ctl
+  _tag: Player
+--- !u!114 &1727347209399593466
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1125683970230407169}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d39c6f41f7bf471409bc1faefaeaf62c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Fall_ctl
+  _stage_ctl: {fileID: 0}
