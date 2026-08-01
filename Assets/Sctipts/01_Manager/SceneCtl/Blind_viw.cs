@@ -7,13 +7,13 @@ public class Blind_viw : MonoBehaviour
 
     void Start()
     {
-        _pos = transform.position;
-        SetBlindPos();
+        _pos = transform.localPosition; // 初期位置を保持
+        SetBlindPos(); // 位置を更新
     }
 
     private void SetBlindPos()
     {
-        _pos.x = _blindPosList[GameMgr.Instance.InfoMdl.LatestStageIndex];
-        transform.localPosition = _pos;
+        _pos.x = _blindPosList[GmMgr.Instance.Checker.Value]; // チェックポイントの値に応じてブラインドの位置を設定
+        transform.localPosition = _pos; // x座標を更新
     }
 }

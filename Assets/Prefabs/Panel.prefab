@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 5373139099758721484}
   - component: {fileID: 1268611933759408319}
   - component: {fileID: 6238390263140453091}
-  - component: {fileID: 2157837795711190523}
+  - component: {fileID: 4076509868365921672}
   - component: {fileID: 3145408262760498532}
   m_Layer: 5
   m_Name: Panel
@@ -95,8 +95,8 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 2157837795711190523}
-          m_TargetAssemblyTypeName: Event_mgr, Assembly-CSharp
+        - m_Target: {fileID: 4076509868365921672}
+          m_TargetAssemblyTypeName: EvntCtl, Assembly-CSharp
           m_MethodName: OnPointerEnter
           m_Mode: 1
           m_Arguments:
@@ -111,8 +111,8 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 2157837795711190523}
-          m_TargetAssemblyTypeName: EventCtl, Assembly-CSharp
+        - m_Target: {fileID: 4076509868365921672}
+          m_TargetAssemblyTypeName: EvntCtl, Assembly-CSharp
           m_MethodName: OnPointerClicked
           m_Mode: 1
           m_Arguments:
@@ -127,8 +127,8 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 2157837795711190523}
-          m_TargetAssemblyTypeName: EventCtl, Assembly-CSharp
+        - m_Target: {fileID: 4076509868365921672}
+          m_TargetAssemblyTypeName: EvntCtl, Assembly-CSharp
           m_MethodName: OnPointerExit
           m_Mode: 1
           m_Arguments:
@@ -139,7 +139,7 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
---- !u!114 &2157837795711190523
+--- !u!114 &4076509868365921672
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -148,9 +148,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 9114728390486921983}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: acbeccb9761f6ce49a8752aca5b90864, type: 3}
+  m_Script: {fileID: 11500000, guid: d25d21d0b5c91bf4ea9f106299dea128, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::Event_mgr
+  m_EditorClassIdentifier: Assembly-CSharp::EvntCtl
 --- !u!114 &3145408262760498532
 MonoBehaviour:
   m_ObjectHideFlags: 0

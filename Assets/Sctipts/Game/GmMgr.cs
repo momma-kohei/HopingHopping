@@ -8,9 +8,19 @@ using UnityEngine;
 public class GmMgr : MonoBehaviour
 {
     public static GmMgr Instance { get; private set; } // シングルトンのインスタンスを保持するプロパティ
-    public DiscreteValue Score { get; private set; } // スコアを扱うクラス
-    public DiscreteValue Life { get; private set; } // 体力を扱うクラス
-    public DiscreteValue Checker { get; private set; } // チェックポイントを扱うクラス
+    /// <summary>
+    /// スコアを扱うクラス
+    /// </summary>
+    public DiscreteValue Score { get; private set; }
+    /// <summary>
+    /// 体力を扱うクラス
+    /// </summary>
+    public DiscreteValue Life { get; private set; }
+    /// <summary>
+    /// チェックポイントを扱うクラス
+    /// </summary>
+    public DiscreteValue Checker { get; private set; }
+
     private void Awake()
     {
         // シングルトン化を行う

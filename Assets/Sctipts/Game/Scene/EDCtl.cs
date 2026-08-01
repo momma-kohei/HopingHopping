@@ -24,8 +24,6 @@ public class EDCtl : MonoBehaviour
         {
             throw new NullReferenceException("EDに使用する画像が設定されていません．");
         }
-        SetScreenType(screenType); // EDの種類に応じて画像の設定を行う
-
         if (!edActive)
         {
             EDFinish(); // EDを実行しない場合は終了させておく
@@ -45,8 +43,11 @@ public class EDCtl : MonoBehaviour
     /// </summary>
     public void EDStart()
     {
+        SetScreenType(screenType); // EDの種類に応じて画像の設定を行う
         screen.gameObject.SetActive(true); // 画像を有効化
         _edTime = 0f; // OP時間を初期化
+        screen.color = new Color(0f, 0f, 0f, 1f); // スクリーンを黒で初期化
+        screen.fillAmount = 1f; // フィル量を1で初期化
         switch (screenType)
         {
             case ScreenType.Fade:

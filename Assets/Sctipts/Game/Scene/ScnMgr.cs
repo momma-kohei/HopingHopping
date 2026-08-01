@@ -6,16 +6,19 @@ using System.Collections;
 /// </summary>
 public class ScnMgr : MonoBehaviour
 {
+    public static ScnMgr Instance { get; private set; } // 静的なインスタンスを保持するプロパティ
+
     private OPCtl opCtl;
     private EDCtl edCtl;
 
-    public void Awake()
+    private void Awake()
     {
+        Instance = this;
         opCtl = GetComponent<OPCtl>();
         edCtl = GetComponent<EDCtl>();
     }
 
-    public void Start()
+    private void Start()
     {
         opCtl.OPStart(); // OPを開始する
     }
@@ -26,6 +29,7 @@ public class ScnMgr : MonoBehaviour
     /// <param name="scene"></param>
     public void TransitScene(SceneType scene)
     {
+        Debug.Log("Scene Transition: " + scene.ToString());
         edCtl.EDStart(); // EDを開始する
         StartCoroutine(LoadScene(scene)); // シーンをロードする
     }

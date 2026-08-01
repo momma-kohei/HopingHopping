@@ -4,12 +4,12 @@ using UnityEngine.UI;
 
 public class SelectCtl : MonoBehaviour
 {
-    [SerializeField] private Scene enterStage;
+    [SerializeField] private SceneType enterStage;
     [SerializeField] private Transform akadamaPoint;
     [SerializeField] private GameObject akadamaIcon;
 
     private Image img;
-    private EventCtl eventCtl;
+    private EvntCtl evntCtl;
 
     private void Start()
     {
@@ -19,17 +19,17 @@ public class SelectCtl : MonoBehaviour
             throw new Exception("画像が見つかりません．");
         }
 
-        eventCtl = GetComponent<EventCtl>();
-        if (eventCtl == null)
+        evntCtl = GetComponent<EvntCtl>();
+        if (evntCtl == null)
         {
             throw new Exception("EventControllerが見つかりません．");
         }
 
-        eventCtl.PointerEnterEvent += OnPointerEnter;
-        eventCtl.PointerExitEvent += OnPointerExit;
-        eventCtl.PointerClickEvent += OnPointerClick;
+        evntCtl.PointerEnterEvent += OnPointerEnter;
+        evntCtl.PointerExitEvent += OnPointerExit;
+        evntCtl.PointerClickEvent += OnPointerClick;
 
-        if (enterStage == Scene.S1)
+        if (enterStage == SceneType.ForestStage)
         {
             SoundMgr.instance.Play(BGMkey.Select);
             OnPointerEnter();
@@ -38,16 +38,15 @@ public class SelectCtl : MonoBehaviour
 
     private void OnDisable()
     {
-        eventCtl.PointerEnterEvent -= OnPointerEnter;
-        eventCtl.PointerExitEvent -= OnPointerExit;
-        eventCtl.PointerClickEvent -= OnPointerClick;
+        evntCtl.PointerEnterEvent -= OnPointerEnter;
+        evntCtl.PointerExitEvent -= OnPointerExit;
+        evntCtl.PointerClickEvent -= OnPointerClick;
     }
 
     private void OnPointerClick()
     {
         SoundMgr.instance.Play(SEkey.Decide);
-        GameMgr.Instance.SceneCtl.SetNextScene(enterStage);
-        GameMgr.Instance.SceneCtl.TransitScene();
+        ScnMgr.Instance.TransitScene(enterStage);
     }
 
     private void OnPointerEnter()

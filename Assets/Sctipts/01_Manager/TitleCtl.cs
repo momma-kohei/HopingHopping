@@ -1,10 +1,10 @@
 using System;
-using UnityEditor.PackageManager;
 using UnityEngine;
 
 public class TitleCtl : MonoBehaviour
 {
     [SerializeField] private EventCtl eventCtl;
+    [SerializeField] private ScnMgr scnMgr;
 
     private void Start()
     {
@@ -13,8 +13,7 @@ public class TitleCtl : MonoBehaviour
             throw new Exception("EventManagerがアタッチされていません．");
         }
 
-    eventCtl.PointerClickEvent += OnPointerClick;
-        GameMgr.Instance.SceneCtl.SetNextScene(Scene.Select);
+        eventCtl.PointerClickEvent += OnPointerClick;
         SoundMgr.instance.Play(BGMkey.Title);
     }
 
@@ -22,6 +21,6 @@ public class TitleCtl : MonoBehaviour
     {
         SoundMgr.instance.Stop(BGMkey.Title);
         SoundMgr.instance.Play(SEkey.Decide);
-        GameMgr.Instance.SceneCtl.TransitScene();
+        scnMgr.TransitScene(SceneType.StageSelect);
     }
 }

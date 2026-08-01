@@ -13,6 +13,7 @@ public class OPCtl : MonoBehaviour
 
     private int _delayFrame = 0; // op開始前のフレームを数える
     private float _opTime = 0; // opの経過時間を数える
+    private bool _opFinished = false; // OPが終了したかどうかを表すフラグ
 
     private void Start()
     {
@@ -81,7 +82,7 @@ public class OPCtl : MonoBehaviour
                     break;
             }
         }
-        else
+        else if (!_opFinished)
         {
             OPFinish();
         }
@@ -106,6 +107,7 @@ public class OPCtl : MonoBehaviour
         }
         screen.raycastTarget = false; // 画像の判定をオフ
         screen.gameObject.SetActive(false); // 画像を無効化する
+        _opFinished = true; // OP終了フラグを立てる
     }
 
     /// <summary>
