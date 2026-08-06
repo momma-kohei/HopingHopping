@@ -35,4 +35,14 @@ public class StgCtl : MonoBehaviour
     {
         ScnMgr.Instance.TransitScene(SceneType.GameOver);
     }
+
+    /// <summary>
+    /// ステージから退出する
+    /// </summary>
+    public void ExitStage()
+    {
+        SoundMgr.instance.Play(SEkey.Decide); // 決定音を再生
+        Time.timeScale = 1f;
+        ScnMgr.Instance.TransitScene(SceneType.StageSelect); // ステージ選択画面に遷移
+    }
 }

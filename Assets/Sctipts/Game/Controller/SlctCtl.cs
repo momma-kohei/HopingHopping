@@ -22,4 +22,11 @@ public class SlctCtl : MonoBehaviour
             _evntCtl.PointerExitEvent += () => _panel.Hover(false);
         }
     }
+
+    public void ExitStageSelect()
+    {
+        SoundMgr.instance.Play(SEkey.Decide); // 決定音を再生
+        Time.timeScale = 1f;
+        ScnMgr.Instance.TransitScene(SceneType.Title); // ステージ選択画面に遷移
+    }
 }

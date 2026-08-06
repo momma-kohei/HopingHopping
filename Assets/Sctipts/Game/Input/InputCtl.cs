@@ -4,6 +4,7 @@ using UnityEngine.InputSystem;
 
 public class InputCtl : MonoBehaviour
 {
+    [SerializeField] private MenuCtl menuCtl;
     [SerializeField] private JumpCtl jumpCtl;
     private MouseCtl mouseCtl;
     private GamepadCtl gamepadCtl;
@@ -40,6 +41,12 @@ public class InputCtl : MonoBehaviour
             throw new Exception("GamepadControllerが見つかりません．");
         }
         gamepadCtl.InputActions = _inputActions;
+
+        if (menuCtl != null)
+        {
+            menuCtl.InputActions = _inputActions;
+            menuCtl.InputCtl = this;
+        }
     }
 
     private void Start()
@@ -49,7 +56,8 @@ public class InputCtl : MonoBehaviour
             throw new Exception("JumpControllerがアタッチされていません．");
         }
 
-        SetPlayerActions(true);
+        //SetPlayerActions(true); // 自動で有効化していたが，OP中は無効化するためにStartでは有効化しないように変更
+
     }
     private void Update()
     {

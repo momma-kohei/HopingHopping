@@ -24,11 +24,7 @@ public class SoundMgr : MonoBehaviour
     [SerializeField] private List<AudioClip> _bgmClips = new List<AudioClip>();
     [SerializeField] private List<AudioSource> _audioSources = new List<AudioSource>();
     
-    private  enum ASkey
-    {
-        seSource,
-        bgmSource
-    }
+    
     private AudioSource GetAS(SEkey seKey)
     {
         AudioSource asc = _audioSources[(int)ASkey.seSource];
@@ -78,6 +74,17 @@ public class SoundMgr : MonoBehaviour
     {
         Singleton();
     }
+
+    public void SetVolume(ASkey asKey, float volume)
+    {
+        _audioSources[(int)asKey].volume = volume;
+    }
+}
+
+public enum ASkey
+{
+    seSource,
+    bgmSource
 }
 
 public enum SEkey
@@ -88,6 +95,9 @@ public enum SEkey
     Launch,
     Clear,
     Fall,
+    Menu,
+    GetS,
+    GetL,
 }
 public enum BGMkey
 {

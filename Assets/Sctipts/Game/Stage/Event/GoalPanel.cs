@@ -1,6 +1,7 @@
 using UnityEngine;
 using TMPro;
 using System.Collections;
+using UnityEngine.SceneManagement;
 
 public class GoalPanel : MonoBehaviour
 {
@@ -26,11 +27,5 @@ public class GoalPanel : MonoBehaviour
         }
         goalPanel.transform.GetChild(goalPanel.transform.childCount - 1).gameObject.SetActive(true); // 子オブジェクトも表示する
         SoundMgr.instance.Play(SEkey.Clear); // クリア音を再生
-    }
-
-    public void ExitStage()
-    {
-        SoundMgr.instance.Play(SEkey.Decide); // 決定音を再生
-        ScnMgr.Instance.TransitScene(SceneType.StageSelect); // ステージ選択画面に遷移
-    }
+    }  
 }

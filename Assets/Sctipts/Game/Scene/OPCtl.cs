@@ -11,6 +11,8 @@ public class OPCtl : MonoBehaviour
     [SerializeField] private int OP_DELAY = 30;
     [SerializeField] private Image screen = null; // OPに使用する画像
 
+    [SerializeField] private InputCtl inputCtl; // プレイヤーの操作を制御するためのInputCtlへの参照
+
     private int _delayFrame = 0; // op開始前のフレームを数える
     private float _opTime = 0; // opの経過時間を数える
     private bool _opFinished = false; // OPが終了したかどうかを表すフラグ
@@ -47,6 +49,10 @@ public class OPCtl : MonoBehaviour
     /// </summary>
     public void OPStart()
     {
+        if (inputCtl != null)
+        {
+            inputCtl.SetPlayerActions(false);
+        }
         screen.gameObject.SetActive(true); // 画像を有効化
         _opTime = 0f; // OP時間を初期化
         switch (screenType)
@@ -108,6 +114,10 @@ public class OPCtl : MonoBehaviour
         screen.raycastTarget = false; // 画像の判定をオフ
         screen.gameObject.SetActive(false); // 画像を無効化する
         _opFinished = true; // OP終了フラグを立てる
+        if (inputCtl != null)
+        {
+            inputCtl.SetPlayerActions(true); // プレイヤーの操作を有効化
+        }
     }
 
     /// <summary>

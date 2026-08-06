@@ -1,9 +1,10 @@
 using System;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GoalCtl : MonoBehaviour
 {
-    [SerializeField] private int stageNum; // ステージ番号
+    private int _stageNum; // ステージ番号
     [SerializeField] private GoalPanel goalPanel; // クリアパネルの参照
     [SerializeField] private InputCtl inputCtl;
 
@@ -18,6 +19,8 @@ public class GoalCtl : MonoBehaviour
         }
 
         triggerCtl.TriggerEnterAction += OnGoal;
+
+        _stageNum = SceneManager.GetActiveScene().buildIndex - 1;
     }
 
     private void OnDisable()
@@ -30,9 +33,13 @@ public class GoalCtl : MonoBehaviour
         inputCtl.SetPlayerActions(false); // プレイヤーの操作を無効化
         Debug.Log("Stage Clear!");
         StartCoroutine(goalPanel.ShowResult());
-        if (GmMgr.Instance.Checker.Value < stageNum)
+        if (GmMgr.Instance.Checker.Value < _stageNum)
         {
             GmMgr.Instance.Checker.Increase(); // ステージクリア数を増やす
+            for (int i = 0; i < 4 + _stageNum; i++)
+            {
+                GmMgr.Instance.Life.Increase();
+            }
         }
     }
 }

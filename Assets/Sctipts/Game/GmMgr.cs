@@ -1,5 +1,6 @@
 using Define;
 using UnityEngine;
+using System.Collections.Generic;
 
 /// <summary>
 /// ゲームという枠組みを管理するクラス
@@ -21,6 +22,8 @@ public class GmMgr : MonoBehaviour
     /// </summary>
     public DiscreteValue Checker { get; private set; }
 
+    public List<List<bool>> ItemSituation = new List<List<bool>>();
+
     private void Awake()
     {
         // シングルトン化を行う
@@ -38,5 +41,10 @@ public class GmMgr : MonoBehaviour
         Score = new DiscreteValue(0, 0, 999, 10);
         Life = new DiscreteValue(3, 0, 99, 1);
         Checker = new DiscreteValue(0, 0, 10, 1);
+
+        for (int i = 0; i < 4; i++)
+        {
+            ItemSituation.Add(new List<bool>());
+        }
     }
 }

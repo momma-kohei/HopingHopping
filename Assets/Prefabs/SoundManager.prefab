@@ -311,6 +311,9 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 75780896e41b4cd4ca83ad06907dccf8, type: 3}
   - {fileID: 8300000, guid: 2265a388ae6e86547bfe0c08813ffdaf, type: 3}
   - {fileID: 8300000, guid: 8ff2230c503e12241a310816bb2fe888, type: 3}
+  - {fileID: 8300000, guid: ae8cbf45e9f7abb48a9c4f127240fdfa, type: 3}
+  - {fileID: 8300000, guid: 918754d133e9dae4892eaf7cc003c7b3, type: 3}
+  - {fileID: 8300000, guid: f5e6f263e5d1d7a458c0f5f811d4d92b, type: 3}
   _bgmClips:
   - {fileID: 8300000, guid: b906a1df0f6f4174c9f7f50020115d13, type: 3}
   - {fileID: 8300000, guid: 0592d666bef780c42812c76683ee9cd6, type: 3}
