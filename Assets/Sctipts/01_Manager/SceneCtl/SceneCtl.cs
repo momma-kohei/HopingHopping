@@ -9,7 +9,7 @@ public class SceneCtl : MonoBehaviour
 {
     [SerializeField] private EndingCtl _ending;
 
-    private Scene _nextScene;
+    private SceneList _nextScene;
 
     /// <summary>
     /// シーン遷移を行うメソッド
@@ -24,7 +24,7 @@ public class SceneCtl : MonoBehaviour
     /// </summary>
     /// <param name="scene">シーン列挙型</param>
     #region// シーン遷移に関するメソッド群
-    public void SetNextScene(Scene scene)
+    public void SetNextScene(SceneList scene)
     {
         _nextScene = scene;
     }
@@ -33,22 +33,22 @@ public class SceneCtl : MonoBehaviour
     {
         switch (_nextScene)
         {
-            case Scene.Title:
+            case SceneList.Title:
                 LoadScene("Title");
                 break;
-            case Scene.Select:
+            case SceneList.Select:
                 LoadScene("Select");
                 break;
-            case Scene.S1:
+            case SceneList.S1:
                 LoadScene("Stage1");
                 break;
-            case Scene.S2:
+            case SceneList.S2:
                 LoadScene("Stage2");
                 break;
-            case Scene.S3:
+            case SceneList.S3:
                 LoadScene("Stage3");
                 break;
-            case Scene.S4:
+            case SceneList.S4:
                 LoadScene("Stage4");
                 break;
         }
@@ -63,7 +63,7 @@ public class SceneCtl : MonoBehaviour
 /// <summary>
 /// シーンの列挙型
 /// </summary>
-public enum Scene
+public enum SceneList
 {
     Title,
     Select,

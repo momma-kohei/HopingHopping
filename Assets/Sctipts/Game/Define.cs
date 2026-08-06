@@ -9,9 +9,10 @@ namespace Define
         
         public int Value { get { return _value; } } // 値を取得するプロパティ
 
-        public DiscreteValue(int min, int max, int diff)
+        public DiscreteValue(int init, int min, int max, int diff)
         {
             // 詳細な値はコンストラクタで設定する
+            _value = init;
             _min = min;
             _max = max;
             _diff = diff;
@@ -26,6 +27,10 @@ namespace Define
         {
             if (_value - _diff < _min) return; // 最小値を下回らないようにする
             _value -= _diff;
+        }
+        public void Add(int value)
+        {
+            _value += value;
         }
     }
 }

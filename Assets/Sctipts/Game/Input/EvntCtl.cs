@@ -4,7 +4,7 @@ using UnityEngine;
 public class EvntCtl : MonoBehaviour
 {
     /// <summary>
-    /// ポインターがクリックされたときに呼び出されるイベント
+    /// ポインターによってオブジェクトがクリックされたときに呼び出されるイベント
     /// </summary>
     public event Action PointerClickEvent;
     public void OnPointerClicked()

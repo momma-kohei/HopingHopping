@@ -35,8 +35,8 @@ public class GmMgr : MonoBehaviour
         }
 
         // スコア，体力，チェックポイントの初期化
-        Score = new DiscreteValue(0, 999, 10);
-        Life = new DiscreteValue(0, 99, 1);
-        Checker = new DiscreteValue(0, 10, 1);
+        Score = new DiscreteValue(0, 0, 999, 10);
+        Life = new DiscreteValue(3, 0, 99, 1);
+        Checker = new DiscreteValue(0, 0, 10, 1);
     }
 }

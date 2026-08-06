@@ -14,6 +14,7 @@ public class SlctCtl : MonoBehaviour
         {
             int index = i;
             EvntCtl _evntCtl = stagePanels.transform.GetChild(i).GetComponent<EvntCtl>();
+            _evntCtl.PointerClickEvent += () => SoundMgr.instance.Stop(BGMkey.Select);
             _evntCtl.PointerClickEvent += () => SoundMgr.instance.Play(SEkey.Decide);
             _evntCtl.PointerClickEvent += () => ScnMgr.Instance.TransitScene((SceneType)(index + 2));
             StagePanel _panel = stagePanels.transform.GetChild(i).GetComponent<StagePanel>();

@@ -54,4 +54,5 @@ public enum SceneType
     DesertStage,
     OceanStage,
     SnowStage,
+    GameOver,
 }
