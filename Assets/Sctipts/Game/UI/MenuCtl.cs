@@ -36,7 +36,7 @@ public class MenuCtl : MonoBehaviour
         }
         else
         {
-            throw new NullReferenceException("MenuCtlにInputCtlが渡されていません．");
+            Debug.Log("MenuCtlにInputCtlが渡されていません．");
         }
         menuPanel.SetActive(true); // メニューを表示する
         if (_inputActions != null)

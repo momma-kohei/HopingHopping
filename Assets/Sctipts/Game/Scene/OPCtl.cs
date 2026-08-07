@@ -144,3 +144,11 @@ public class OPCtl : MonoBehaviour
         }
     }
 }
+
+public enum ScreenType
+{
+    Fade,
+    SlideL,
+    SlideR,
+    Rotate,
+}

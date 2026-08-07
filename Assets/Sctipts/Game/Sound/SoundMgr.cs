@@ -98,6 +98,8 @@ public enum SEkey
     Menu,
     GetS,
     GetL,
+    Jan,
+    Jajan,
 }
 public enum BGMkey
 {
@@ -107,4 +109,6 @@ public enum BGMkey
     Stage2,
     Stage3,
     Stage4,
+    GameOver,
+    GameClear,
 }

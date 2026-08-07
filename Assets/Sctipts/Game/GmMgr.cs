@@ -24,6 +24,8 @@ public class GmMgr : MonoBehaviour
 
     public List<List<bool>> ItemSituation = new List<List<bool>>();
 
+    public int FinalScore { get { return Score.Value + (Life.Value * 20); } }
+
     private void Awake()
     {
         // シングルトン化を行う
@@ -37,9 +39,16 @@ public class GmMgr : MonoBehaviour
             Destroy(gameObject);
         }
 
+        Init();
+    }
+
+    public void Init()
+    {
+        ItemSituation.Clear();
+
         // スコア，体力，チェックポイントの初期化
         Score = new DiscreteValue(0, 0, 999, 10);
-        Life = new DiscreteValue(3, 0, 99, 1);
+        Life = new DiscreteValue(4, 0, 99, 1);
         Checker = new DiscreteValue(0, 0, 10, 1);
 
         for (int i = 0; i < 4; i++)

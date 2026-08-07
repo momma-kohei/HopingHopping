@@ -13,7 +13,7 @@ public class StageBlind : MonoBehaviour
 
     private void SetBlindPos()
     {
-        _pos.x = _blindPosList[GmMgr.Instance.Checker.Value]; // チェックポイントの値に応じてブラインドの位置を設定
+        _pos.x = _blindPosList[Mathf.Clamp(GmMgr.Instance.Checker.Value, 0, 3)]; // チェックポイントの値に応じてブラインドの位置を設定
         transform.localPosition = _pos; // x座標を更新
     }
 }
