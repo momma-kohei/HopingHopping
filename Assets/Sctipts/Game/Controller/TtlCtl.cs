@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 public class TtlCtl : MonoBehaviour // タイトルシーンの制御を行うクラス

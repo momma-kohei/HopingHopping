@@ -1,10 +1,13 @@
-using System;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using TMPro;
+using UnityEngine.UI;
 
 public class MenuCtl : MonoBehaviour
 {
     [SerializeField] private GameObject menuPanel;
+    [SerializeField] private TextMeshProUGUI bestScoreText;
+    [SerializeField] private Button menuBtn;
     private InputSystem_Actions _inputActions;
     private InputCtl _inputCtl; // InputCtlの参照
 
@@ -19,15 +22,49 @@ public class MenuCtl : MonoBehaviour
         }
         if (_inputActions != null)
         {
-            _inputActions.Game.Menu.started += OpenMenu;
+            Invoke("SetMenuOpen", 1.2f);
         }
         else
         {
             Debug.Log("MenuCtlにInputCtlが渡されていません．");
         }
+
+        bestScoreText.text = GmMgr.Instance.BestScore.ToString();
+    }
+
+    private void SetMenuOpen()
+    {
+        _inputActions.Game.Menu.started += OpenMenu;
+        menuBtn.gameObject.SetActive(true);
+        menuBtn.onClick.AddListener(OpenMenu);
     }
 
     public void OpenMenu(InputAction.CallbackContext context)
+    {
+        SoundMgr.instance.Play(SEkey.Menu);
+        if (_inputCtl != null)
+        {
+            _inputCtl.SetPlayerActions(false);
+        }
+        else
+        {
+            Debug.Log("MenuCtlにInputCtlが渡されていません．");
+        }
+        menuPanel.SetActive(true); // メニューを表示する
+        if (_inputActions != null)
+        {
+            _inputActions.Game.Menu.started -= OpenMenu;
+            _inputActions.Game.Menu.started += CloseMenu;
+        }
+        else
+        {
+            Debug.Log("MenuCtlにInputCtlが渡されていません．");
+        }
+
+        Time.timeScale = 0f; // ゲームを一時停止する
+    }
+
+    public void OpenMenu()
     {
         SoundMgr.instance.Play(SEkey.Menu);
         if (_inputCtl != null)
@@ -60,6 +97,28 @@ public class MenuCtl : MonoBehaviour
         if (_inputCtl != null)
         {
             _inputCtl.SetPlayerActions(true);
+            Debug.Log("Menu true");
+        }
+        if (_inputActions != null)
+        {
+            _inputActions.Game.Menu.started -= CloseMenu;
+            _inputActions.Game.Menu.started += OpenMenu;
+        }
+        else
+        {
+            Debug.Log("MenuCtlにInputCtlがアタッチされていません．");
+        }
+    }
+
+    public void CloseMenu()
+    {
+        SoundMgr.instance.Play(SEkey.Menu);
+        menuPanel.SetActive(false); // メニューを非表示にする
+        Time.timeScale = 1f; // ゲームを再開する
+        if (_inputCtl != null)
+        {
+            _inputCtl.SetPlayerActions(true);
+            Debug.Log("Menu true");
         }
         if (_inputActions != null)
         {

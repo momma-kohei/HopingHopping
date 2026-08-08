@@ -47,8 +47,9 @@ public class RsltCtl : MonoBehaviour
         showingTexts.transform.GetChild(showingTexts.transform.childCount - 2).gameObject.SetActive(true);
         SoundMgr.instance.Play(SEkey.Jan);
 
-        if (true)
+        if (GmMgr.Instance.FinalScore > GmMgr.Instance.BestScore)
         {
+            // ベストスコア更新を称賛するテキストを表示
             yield return new WaitForSeconds(1f); // 1秒待機
             bestScoreText.SetActive(true);
             SoundMgr.instance.Play(SEkey.Jajan);
@@ -57,10 +58,15 @@ public class RsltCtl : MonoBehaviour
         yield return new WaitForSeconds(2f); // 2秒待機
         showingTexts.transform.GetChild(showingTexts.transform.childCount - 1).gameObject.SetActive(true);
         SoundMgr.instance.Play(SEkey.Hover); // 効果音を再生
+
+        // 反省点：この３行一組はコルーチン化するなどコンポーネントにした方がよかったかもしれません
+        // 例）Show(time, object, SEkey)
     }
 
     public void FinishGame()
     {
+        SoundMgr.instance.Play(SEkey.Decide);
+        GmMgr.Instance.SaveBestScore();
         GmMgr.Instance.Init();
         ScnMgr.Instance.TransitScene(SceneType.Title);
     }

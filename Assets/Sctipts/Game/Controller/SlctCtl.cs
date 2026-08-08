@@ -7,6 +7,7 @@ public class SlctCtl : MonoBehaviour
 
     private void Start()
     {
+        SoundMgr.instance.Stop(SEkey.Charge);
         SoundMgr.instance.Play(BGMkey.Select);
         stagePanels.transform.GetChild(0).GetComponent<StagePanel>().MoveAkadama();
 

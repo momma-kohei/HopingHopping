@@ -25,6 +25,7 @@ public class GmMgr : MonoBehaviour
     public List<List<bool>> ItemSituation = new List<List<bool>>();
 
     public int FinalScore { get { return Score.Value + (Life.Value * 20); } }
+    public int BestScore { get { return PlayerPrefs.GetInt("BestScore", 0); } }
 
     private void Awake()
     {
@@ -54,6 +55,17 @@ public class GmMgr : MonoBehaviour
         for (int i = 0; i < 4; i++)
         {
             ItemSituation.Add(new List<bool>());
+        }
+    }
+
+    /// <summary>
+    /// ベストスコアを保存するメソッド
+    /// </summary>
+    public void SaveBestScore()
+    {
+        if (FinalScore > BestScore)
+        {
+            PlayerPrefs.SetInt("BestScore", FinalScore);
         }
     }
 }

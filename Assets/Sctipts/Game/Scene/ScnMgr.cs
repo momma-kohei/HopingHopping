@@ -18,11 +18,6 @@ public class ScnMgr : MonoBehaviour
         edCtl = GetComponent<EDCtl>();
     }
 
-    private void Start()
-    {
-        opCtl.OPStart(); // OPを開始する
-    }
-
     /// <summary>
     /// enum SceneType の中からシーンを指定して画面遷移する
     /// </summary>
