@@ -20,6 +20,7 @@ public class VolumeSliderCtl : MonoBehaviour
     {
         _previousValue = (int)_slider.value;
         _currentValue = _previousValue;
+        UpdateVolumeSlider();
         UpdateValueText();
     }
 
@@ -42,5 +43,10 @@ public class VolumeSliderCtl : MonoBehaviour
     private void UpdateVolume()
     {
         SoundMgr.instance.SetVolume(asKey, _slider.value/10f);
+    }
+
+    private void UpdateVolumeSlider()
+    {
+        _slider.value = SoundMgr.instance.GetVolume(asKey) * 10f;
     }
 }

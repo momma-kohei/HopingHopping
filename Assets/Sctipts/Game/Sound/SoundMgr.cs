@@ -79,6 +79,11 @@ public class SoundMgr : MonoBehaviour
     {
         _audioSources[(int)asKey].volume = volume;
     }
+
+    public float GetVolume(ASkey asKey)
+    {
+        return _audioSources[(int)asKey].volume;
+    }
 }
 
 public enum ASkey
