@@ -9,6 +9,7 @@ public class ChargeCtl : MonoBehaviour
     private float _time = 0f;
     private float _charge = 0f;
     private bool _charging = false;
+    private bool _seDone = false;
 
     public float ChargeTime => _time;
     public float Charge => _charge;
@@ -19,10 +20,11 @@ public class ChargeCtl : MonoBehaviour
     /// </summary>
     public void ChargeStart()
     {
+        _time = 0f;
+        _charging = true;
+        _seDone = false;
         if (groundTrigger.IsActive)
         {
-            _time = 0f;
-            _charging = true;
             SoundMgr.instance.Play(SEkey.Charge);
         }
     }
@@ -38,9 +40,14 @@ public class ChargeCtl : MonoBehaviour
 
     private void Update()
     {
-        if (_charging)
+        if (_charging && groundTrigger.IsActive)
         {
             _time += Time.deltaTime;
+            if (!_seDone)
+            {
+                SoundMgr.instance.Play(SEkey.Charge);
+                _seDone = true;
+            }
         }
         _charge = chargeCurve.Evaluate(_time);
     }

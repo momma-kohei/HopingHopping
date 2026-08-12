@@ -23,8 +23,8 @@ public class JumpCtl : MonoBehaviour
 
     public void Jump()
     {
-        if (groundTrigger.IsActive == false) return;
         chargeCtl.ChargeFinish();
+        if (groundTrigger.IsActive == false) return;
         launchCtl.Launch(BASIC_VELOITY * chargeCtl.Charge * _jumpVector);
     }
 }
