@@ -6115,9 +6115,9 @@ Camera:
   m_NormalizedViewPortRect:
     serializedVersion: 2
     x: 0
-    y: 0.054437637
+    y: 0.01425907
     width: 1
-    height: 0.8911247
+    height: 0.97148186
   near clip plane: 0.3
   far clip plane: 1000
   field of view: 60
@@ -8843,7 +8843,7 @@ Tilemap:
     m_Data: {r: 1, g: 1, b: 1, a: 1}
   m_TileObjectToInstantiateArray: []
   m_AnimationFrameRate: 1
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.7, g: 0.7, b: 0.7, a: 1}
   m_Origin: {x: -56, y: -50, z: 0}
   m_Size: {x: 185, y: 70, z: 1}
   m_TileAnchor: {x: 0.5, y: 0.5, z: 0}
