@@ -2,6 +2,8 @@ using UnityEngine;
 using TMPro;
 using System.Collections;
 
+using unityroom.Api;
+
 public class RsltCtl : MonoBehaviour
 {
     [SerializeField] private GameObject showingTexts;
@@ -16,6 +18,8 @@ public class RsltCtl : MonoBehaviour
         scoreText.text = GmMgr.Instance.Score.Value.ToString();
         lifeText.text = GmMgr.Instance.Life.Value.ToString();
         finalScoreText.text = GmMgr.Instance.FinalScore.ToString();
+
+        UnityroomApiClient.Instance.SendScore(1, GmMgr.Instance.FinalScore, ScoreboardWriteMode.HighScoreDesc);
 
         InitUnset();
 

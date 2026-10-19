@@ -1926,9 +1926,9 @@ Camera:
   m_NormalizedViewPortRect:
     serializedVersion: 2
     x: 0
-    y: 0.059235066
+    y: 0.011860341
     width: 1
-    height: 0.88152987
+    height: 0.9762793
   near clip plane: 0.3
   far clip plane: 1000
   field of view: 60
@@ -2911,6 +2911,10 @@ PrefabInstance:
     - target: {fileID: 4863481919797544414, guid: d28b05b67035eb44eb59098c70cae8d0, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6631929622245164191, guid: d28b05b67035eb44eb59098c70cae8d0, type: 3}
+      propertyPath: m_Volume
+      value: 0.2
       objectReference: {fileID: 0}
     - target: {fileID: 7092330118891226439, guid: d28b05b67035eb44eb59098c70cae8d0, type: 3}
       propertyPath: m_Name
